@@ -13,5 +13,5 @@ Assets
 - https://assetstore.unity.com/packages/package/192553
 - https://assetstore.unity.com/packages/package/192553
 
-- https://sketchfab.com/3d-models/crash-dummy-0c5cf6b017ba48f1bb32244ae1fefd2d
+- https://sketchfab.com/3d-models/practice-dummy-lowpoly-816d9b2b50524e6e803e9969505dcc9f
 - https://sketchfab.com/3d-models/boxing-gloves-9d244a5bfaf84ea398cff99154e99eab
