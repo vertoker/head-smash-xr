@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0234341f61964e9e9ede7893742053cf, type: 3}
+  m_Script: {fileID: 11500000, guid: b53eb82258e249bb97cf3789c6a97dda, type: 3}
   m_Name: GunAffordanceTheme
   m_EditorClassIdentifier: 
   m_Comments: 
@@ -60,7 +60,7 @@ MonoBehaviour:
       animationStateEndValue: 0
     - stateName: activated
       animationStateStartValue: 0
-      animationStateEndValue: 1
+      animationStateEndValue: 1.1
     - stateName: focused
       animationStateStartValue: 0
       animationStateEndValue: 0

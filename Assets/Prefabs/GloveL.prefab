@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1196633523368617669}
   - component: {fileID: 1685572421471235318}
   - component: {fileID: 1942090150455148262}
+  - component: {fileID: 338912479035251999}
   m_Layer: 0
   m_Name: boxing_gloves.L
   m_TagString: Untagged
@@ -41,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3271396165487667176}
-  m_Mesh: {fileID: 9151648323755713012, guid: c6db25090615c5a43bc5a4bfec2806a8, type: 3}
+  m_Mesh: {fileID: 9151648323755713012, guid: 322f4c1e0ef91fa4a87d471b78b51915, type: 3}
 --- !u!23 &1685572421471235318
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -106,6 +107,30 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 9151648323755713012, guid: c6db25090615c5a43bc5a4bfec2806a8, type: 3}
+--- !u!114 &338912479035251999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3271396165487667176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf0498837124fb5bd25962a7ab5d090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <provideColliders>k__BackingField: 1
+  <provideTriggers>k__BackingField: 0
+  <filterByLayer>k__BackingField: 1
+  <maskFilter>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 64
+  <filterByTag>k__BackingField: 0
+  <tagFilter>k__BackingField: 
+  <debug>k__BackingField: 0
+  effectPrefab: {fileID: 460012844624876673, guid: 89da42e53014d2047b340a20b10f85c5,
+    type: 3}
+  parent: {fileID: 0}
 --- !u!1 &5636160025176207550
 GameObject:
   m_ObjectHideFlags: 0

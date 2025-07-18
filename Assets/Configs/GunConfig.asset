@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c585b0b7cdfd4e359a80c385ab5b0480, type: 3}
   m_Name: GunConfig
   m_EditorClassIdentifier: 
-  <rate>k__BackingField: 0.2
-  <bulletPrefab>k__BackingField: {fileID: 0}
-  <bulletStartEffect>k__BackingField: {fileID: 0}
-  <bulletEndEffect>k__BackingField: {fileID: 0}
+  <rate>k__BackingField: 0.1
+  <bulletSpeed>k__BackingField: 25
+  <bulletPrefab>k__BackingField: {fileID: 4447205768064682838, guid: 86bed117a9ee4854691e07ff84884ebd,
+    type: 3}

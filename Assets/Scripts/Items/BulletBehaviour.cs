@@ -16,7 +16,7 @@ namespace Items
         }
         private void SpawnEffect(GameObject effectPrefab)
         {
-            Instantiate(effectPrefab, transform.localPosition, transform.localRotation, transform.parent);
+            Instantiate(effectPrefab, transform.position, transform.rotation, transform.parent);
         }
     }
 }

@@ -6,12 +6,8 @@ namespace Items
     public class EffectCollisionSpawner : ColliderProvider
     {
         [SerializeField] private GameObject effectPrefab;
-        [SerializeField] private Transform spawnPoint;
+        [SerializeField] private Transform parent;
         
-        private void Awake()
-        {
-            spawnPoint ??= transform;
-        }
         private void OnEnable()
         {
             CollisionEnter += EffectSpawn;
@@ -23,7 +19,8 @@ namespace Items
         
         private void EffectSpawn(Collision other)
         {
-            Instantiate(effectPrefab, spawnPoint);
+            if (other.contacts.Length != 0)
+                Instantiate(effectPrefab, other.contacts[0].point, Quaternion.identity, parent);
         }
     }
 }

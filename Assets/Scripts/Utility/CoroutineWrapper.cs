@@ -7,7 +7,7 @@ namespace Utility
     public class CoroutineWrapper//<TMonoBehaviour> where TMonoBehaviour : MonoBehaviour
     {
         private readonly MonoBehaviour behaviour;
-        private Coroutine coroutine;
+        private Coroutine coroutine = null;
 
         public CoroutineWrapper(MonoBehaviour behaviour)
         {
@@ -16,15 +16,15 @@ namespace Utility
 
         public void Start(IEnumerator routine)
         {
-            if (coroutine != null)
-                StopImpl();
+            Stop();
             StartImpl(routine);
         }
         public void Stop()
         {
-            if (coroutine == null) return;
-            StopImpl();
+            if (coroutine != null)
+                StopImpl();
         }
+        public bool IsRunning() => coroutine != null;
 
         private void StartImpl(IEnumerator routine)
         {

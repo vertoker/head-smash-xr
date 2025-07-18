@@ -1,54 +1,66 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Items;
 using Unity.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.Receiver.Primitives;
 using Utility;
 using XR.AffordanceSystem;
 
 namespace XR
 {
-    public class GunAffordanceReceiver : BoolAffordanceReceiver
+    public class GunAffordanceReceiver : MonoBehaviour
     {
+        [SerializeField] private FloatAffordanceReceiver receiver;
         [SerializeField] private GunConfig config;
         [SerializeField] private Transform bulletPoint;
+        [SerializeField] private Transform bulletParent;
         
         [ReadOnly] private bool isActive;
         private CoroutineWrapper coroutineWrapper;
 
-        protected override void Start()
+        private void Awake()
         {
-            base.Start();
-            coroutineWrapper.Start(MainCycle());
+            coroutineWrapper = new CoroutineWrapper(this);
         }
-        protected override void OnDestroy()
+        private void Start()
         {
-            base.OnDestroy();
+            //coroutineWrapper.Start(MainCycle());
+        }
+        private void OnDestroy()
+        {
             coroutineWrapper.Stop();
         }
 
-        /// <inheritdoc/>
-        protected override void OnAffordanceValueUpdated(bool newValue)
+        private void OnEnable()
         {
-            isActive = newValue;
-            base.OnAffordanceValueUpdated(newValue);
+            receiver.valueUpdated.AddListener(ValueChanged);
         }
-        /// <inheritdoc/>
-        protected override bool GetCurrentValueForCapture()
+        private void OnDisable()
         {
-            return isActive;
+            receiver.valueUpdated.RemoveListener(ValueChanged);
         }
-        
+        private void ValueChanged(float value)
+        {
+            if (!coroutineWrapper.IsRunning() && value >= 1)
+                coroutineWrapper.Start(MainCycle());
+            else if (coroutineWrapper.IsRunning() && value <= 0)
+                coroutineWrapper.Stop();
+        }
+
         private IEnumerator MainCycle()
         {
             while (true)
             {
                 yield return new WaitForSeconds(config.rate);
-                var bullet = Instantiate(config.bulletPrefab, Vector3.zero, Quaternion.identity, bulletPoint);
+                var bullet = Instantiate(config.bulletPrefab, bulletPoint.position, bulletPoint.rotation, bulletParent);
                 if (bullet.TryGetComponent<Rigidbody>(out var rbBullet))
-                    rbBullet.AddForce(config.bulletSpeed, 0, 0, ForceMode.Impulse);
+                {
+                    var force = bulletPoint.forward * config.bulletSpeed;
+                    rbBullet.AddForce(force, ForceMode.Impulse);
+                }
             }
         }
-        
     }
 }

@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6072db9684374d7d92d45ba08126e990, type: 3}
   m_Name: BulletConfig
   m_EditorClassIdentifier: 
-  <bulletStartEffect>k__BackingField: {fileID: 0}
-  <bulletEndEffect>k__BackingField: {fileID: 0}
+  <bulletStartEffect>k__BackingField: {fileID: 5318086181360368335, guid: 8f1300c8c2438554485a48c9a83a525a,
+    type: 3}
+  <bulletEndEffect>k__BackingField: {fileID: 460012844624876673, guid: 89da42e53014d2047b340a20b10f85c5,
+    type: 3}
